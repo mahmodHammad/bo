@@ -33,7 +33,7 @@ const camera = new THREE.PerspectiveCamera(
   0.001, // near plane
   80000 // far plane
 );
-camera.position.set(0, 0, 13);
+camera.position.set(0, 0, 4);
 // camera.lookAt(new THREE.Vector3(4,0,0))
 
 // ----------------------------------------------> controls
@@ -47,11 +47,11 @@ function setupControls(speed) {
 
   // controls.target = new THREE.Vector3(0, 1, 0);
 
-  controls.maxDistance = settings.maxZoom;
-  controls.minDistance = settings.minZoom;
+  // controls.maxDistance = settings.maxZoom;
+  // controls.minDistance = settings.minZoom;
 
-  controls.maxPolarAngle = settings.maxPolarAngle;
-  controls.minPolarAngle = settings.minPolarAngle;
+  // controls.maxPolarAngle = settings.maxPolarAngle;
+  // controls.minPolarAngle = settings.minPolarAngle;
 
   controls.autoRotate = settings.autoRotate;
   controls.autoRotateSpeed = settings.autoRotateSpeed;
@@ -60,7 +60,7 @@ function setupControls(speed) {
   controls.enableZoom=false
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
-  controls.target = new THREE.Vector3(0,0,0)
+  controls.target = new THREE.Vector3(0,1,0)
 }
 
 

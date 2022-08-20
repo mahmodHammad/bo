@@ -5,9 +5,9 @@ const earth = require("./vi arcane retopo4.glb").default;
 
 let earthModel
 function addLights() {
-  const amplight = new THREE.AmbientLight("#ffffff", 0.8);
-  let lightBack = new THREE.RectAreaLight(0xffffff, 0.2,10,10);
-  let lightFront = new THREE.RectAreaLight(0xffffff, 0.2,10,10);
+  const amplight = new THREE.AmbientLight("#ffffff", 0.7);
+  let lightBack = new THREE.RectAreaLight(0xffffff, 1,10,0.7);
+  let lightFront = new THREE.RectAreaLight(0xffffff, 1,10,0.6);
   lightBack.position.set(2, 2, 7);
   lightFront.position.set(-2, -2, 7);
 
@@ -20,15 +20,13 @@ const addItem = () => {
     .then((e) => {
       earthModel=e.scene.getChildByName("earthblack")
       scene.add(e.scene);
-      const clonemodel = e.scene.clone();
-
-      renderAtmo(clonemodel)
+      renderAtmo()
     })
     addLights();
 };
 
 
-function renderAtmo(clonemodel) {
+function renderAtmo() {
   const vertexShader = `
   varying vec3 vNormal;
   void main() 
@@ -40,12 +38,13 @@ function renderAtmo(clonemodel) {
   varying vec3 vNormal;
 void main() 
 {
-	float intensity = pow( 0.5 - dot( vNormal, vec3( 0.0, 0.0, 0.5 ) ), 5.0 ); 
-    gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 ) * intensity;
+	float intensity = pow( 0.45 - dot( vNormal, vec3( 0.0, 0.35, 0.5 ) ), 3.0 ); 
+    gl_FragColor = vec4( 1.0, 1.0, 0.8, 1.0 ) * intensity;
 }`
 
 var customMaterial = new THREE.ShaderMaterial( 
 	{
+
 	    uniforms: {  },
 		vertexShader,
 		fragmentShader,
@@ -54,19 +53,12 @@ var customMaterial = new THREE.ShaderMaterial(
 		transparent: true
 	}   );
 
-	var sphereGeo = new THREE.CylinderGeometry( 0.6, 0.6,128, 128 );
+	var sphereGeo = new THREE.CylinderGeometry( 0.7,0.7, 4, 64 );
+  
   const atmMesh = new THREE.Mesh(sphereGeo,customMaterial)
-  // atmMesh.material = customMaterial
-  // atmMesh.position.setX(0)
+  atmMesh.position.setY(2)
   atmMesh.renderOrder=-10
-  atmMesh.material.depthTest = false
-
-  // clonemodel.rotation.x=-Math.PI/2
-  // clonemodel.traverse(n => { if ( n.isMesh ) {
-  //   console.log(n.material)
-  //   n.material= customMaterial
-  // }});
-
+  // atmMesh.material.depthTest = false
   scene.add(atmMesh)
 
 }

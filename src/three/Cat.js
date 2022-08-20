@@ -50,7 +50,7 @@ export default function Cat( ) {
 
          
       <div ref={textInput} className="canvas"></div>
-      <Footer/>
+      {/* <Footer/> */}
 
 
   

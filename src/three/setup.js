@@ -20,6 +20,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 renderer.setPixelRatio(settings.quality);
+renderer.outputEncoding=  THREE.sRGBEncoding
 function render() {
   renderer.render(scene, camera);
 }
@@ -47,11 +48,11 @@ function setupControls(speed) {
 
   // controls.target = new THREE.Vector3(0, 1, 0);
 
-  // controls.maxDistance = settings.maxZoom;
-  // controls.minDistance = settings.minZoom;
+  controls.maxDistance = settings.maxZoom;
+  controls.minDistance = settings.minZoom;
 
-  // controls.maxPolarAngle = settings.maxPolarAngle;
-  // controls.minPolarAngle = settings.minPolarAngle;
+  controls.maxPolarAngle = settings.maxPolarAngle;
+  controls.minPolarAngle = settings.minPolarAngle;
 
   controls.autoRotate = settings.autoRotate;
   controls.autoRotateSpeed = settings.autoRotateSpeed;

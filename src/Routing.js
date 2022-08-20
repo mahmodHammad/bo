@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar/Navbar";
+// import Navbar from "./Navbar/Navbar";
 import Cat from "./three/Cat"
-import Shop from "./pages/shop/Shop"
-import Projects from "./pages/projects/Projects"
-import Project from "./pages/project/Project"
+// import Shop from "./pages/shop/Shop"
+// import Projects from "./pages/projects/Projects"
+// import Project from "./pages/project/Project"
 
 import Checkout from "./pages/checkout/Checkout"
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Drawer from "./Navbar/components/Drawer"
-import Button from '@material-ui/core/Button';
+// import Drawer from "./Navbar/components/Drawer"
+// import Button from '@material-ui/core/Button';
 import "./App.css";
-import Sucess from "./pages/feedback/Sucess"
-import Dash from "./pages/Dash/Dash"
+// import Sucess from "./pages/feedback/Sucess"
+// import Dash from "./pages/Dash/Dash"
 import p1 from "./assets/p1.jpeg"
 import p2 from "./assets/p2.jpeg"
 import l1 from "./assets/l1.jpeg"
@@ -152,21 +152,21 @@ const setsize=(itemID,newsize)=>{
         <div style={{ minHeight:"100%"}}>
        
             <BrowserRouter>
-            <Navbar
+            {/* <Navbar
           isHomePage={true}
           isDarkMode={true}
           draweOpen={()=>console.log("")}
           toggleDrawer={()=>console.log("")}
-        />
-            <Drawer removeItem={removeItem} setsize={setsize} increaseQuantitly={increaseQuantitly} toggleDrawer={toggleDrawer} draweOpen={draweOpen}cartData={cartData} />
+        /> */}
+            {/* <Drawer removeItem={removeItem} setsize={setsize} increaseQuantitly={increaseQuantitly} toggleDrawer={toggleDrawer} draweOpen={draweOpen}cartData={cartData} /> */}
               <Switch>
                 <Route exact path="/" render={props => <Cat/>} />
-                <Route exact path="/dash" render={props => <Dash/>} />
+                {/* <Route exact path="/dash" render={props => <Dash/>} />
                 <Route exact path="/success" render={props => <Sucess/>} />
                 <Route exact path="/shop" render={props => <Shop cartData={cartData} addToCart={addToCart} toggleDrawer={toggleDrawer} products={products}/>}/>
                 <Route exact path="/projects" render={props => <Projects/> }/>
                 <Route exact path="/project" render={props => <Project/> }/>
-                <Route exact path="/checkout" render={props => <Checkout cartData={cartData}/>} />
+                <Route exact path="/checkout" render={props => <Checkout cartData={cartData}/>} /> */}
               </Switch>
               {/* <Footer /> */}
             </BrowserRouter>
